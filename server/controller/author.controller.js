@@ -12,3 +12,9 @@ module.exports.findAllAuthors = (req, res) => {
         .then(authors => res.json(authors))
         .catch(err => res.json({message: "Error finding all authors", error: err}));
 };
+
+module.exports.findAuthorById = (req, res) => {
+    Author.find({_id: req.params.id})
+        .then(author => res.json(author))
+        .catch(err => res.json({message: "Error finding author by Id", error: err}));
+};
