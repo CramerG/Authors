@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { TableContainer, Paper, Table, TableRow, TableHead, TableCell, TableBody } from '@material-ui/core';
+import EditButton from '../components/EditButton';
+import DeleteButton from '../components/DeleteButton';
 
 const AuthorList = props => {
     const [authors, setAuthors] = useState();
@@ -32,7 +34,10 @@ const AuthorList = props => {
                             return(
                                 <TableRow>
                                     <TableCell>{author.name}</TableCell>
-                                    <TableCell>Edit, Delete</TableCell>
+                                    <TableCell>
+                                        <EditButton/>
+                                        <DeleteButton/>
+                                        </TableCell>
                                 </TableRow>
                             );
                         })}
