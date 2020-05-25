@@ -4,6 +4,8 @@ import Header from './components/Header';
 import AuthorList from './views/AuthorList'
 import {Paper} from '@material-ui/core';
 import './App.css';
+import AuthorEdit from './views/AuthorEdit';
+import AuthorAdd from './views/AuthorAdd';
 
 function App() {
   return (
@@ -12,6 +14,8 @@ function App() {
         <Header/>
         <Router>
           <AuthorList path="/authors"/>
+          <AuthorEdit path="/authors/:id"/>
+          <AuthorAdd path="/authors/add"/>
         </Router>
       </Paper>
       

@@ -14,7 +14,7 @@ module.exports.findAllAuthors = (req, res) => {
 };
 
 module.exports.findAuthorById = (req, res) => {
-    Author.find({_id: req.params.id})
+    Author.findOne({_id: req.params.id})
         .then(author => res.json(author))
         .catch(err => res.json({message: "Error finding author by Id: ", error: err}));
 };
@@ -24,3 +24,9 @@ module.exports.deleteAuthor = (req, res) => {
         .then(author => res.json(author))
         .catch(err => res.json({message: "Error deleting author: ", error: err}))
 }
+
+module.exports.updateAuthor = (req, res) => {
+    Author.findOneAndUpdate({_id: req.params.id}, req.body, {new: true})
+        .then(author => res.json(author))
+        .catch(err => res.json({message: "Error updating author: ", error: err}));
+};

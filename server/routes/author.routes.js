@@ -5,4 +5,5 @@ module.exports = app => {
     app.get("/api/authors", AuthorController.findAllAuthors);
     app.get("/api/authors/:id", AuthorController.findAuthorById);
     app.delete("/api/authors/:id", AuthorController.deleteAuthor);
+    app.put("/api/authors/:id", AuthorController.updateAuthor);
 }
