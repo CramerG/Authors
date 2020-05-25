@@ -4,7 +4,7 @@ module.exports.addAuthor = (req, res) => {
     const {name} = req.body;
     Author.create({name})
         .then(newAuthor => res.json( {author: newAuthor} ))
-        .catch(err => res.json( {message: "Error adding new author: ", error: err} ));
+        .catch(err => res.status(400).json(err));
 };
 
 module.exports.findAllAuthors = (req, res) => {

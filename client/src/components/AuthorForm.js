@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { InputLabel, OutlinedInput } from '@material-ui/core';
+import { InputLabel, OutlinedInput, FormControl } from '@material-ui/core';
 import axios from 'axios';
 import { navigate } from '@reach/router';
 
 const AuthorForm = props => {
     const [name, setName] = useState();
     const [loaded, setLoaded] = useState(false);
+    const [error, setError] = useState(props.error);
 
     useEffect(  () => {
         axios.get("http://localhost:8000/api/authors/" + props.id)
@@ -25,11 +26,11 @@ const AuthorForm = props => {
     return(
         <form onSubmit={onSubmitHandler}>          
                 <InputLabel>Author Name:</InputLabel>
-                {loaded && <OutlinedInput type="text" value={name} onChange={(e)=>{setName(e.target.value)}}/> }
-                         
+                {loaded && <OutlinedInput type="text" value={name} onChange={(e)=>{setName(e.target.value)}}/> }                      
             <br/>
             <OutlinedInput type="button" value="Cancel" onClick={()=>{navigate('/authors/')}}/>
             <OutlinedInput type="submit"/>
+
         </form>
     );
 }
