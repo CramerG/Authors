@@ -1,4 +1,4 @@
-import React, { useEffect, useState} from 'react';
+import React, { useState} from 'react';
 import axios from 'axios';
 import AuthorForm from '../components/AuthorForm';
 import { navigate } from '@reach/router';
@@ -22,7 +22,7 @@ const AuthorEdit = props => {
             });  
     };
     const renderErrors = () => {
-        if (errors.length == 0) {
+        if (errors.length === 0) {
             return(<div></div>);
         } else {
             return(

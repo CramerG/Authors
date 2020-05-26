@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { InputLabel, OutlinedInput, FormControl } from '@material-ui/core';
+import { InputLabel, OutlinedInput } from '@material-ui/core';
 import axios from 'axios';
 import { navigate } from '@reach/router';
 
 const AuthorForm = props => {
     const [name, setName] = useState();
     const [loaded, setLoaded] = useState(false);
-    const [error, setError] = useState(props.error);
 
     useEffect(  () => {
         axios.get("http://localhost:8000/api/authors/" + props.id)

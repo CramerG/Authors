@@ -24,7 +24,7 @@ const AuthorAdd = props => {
     };
 
     const renderErrors = () => {
-        if (errors.length == 0) {
+        if (errors.length === 0) {
             return(<div></div>);
         } else {
             return(
