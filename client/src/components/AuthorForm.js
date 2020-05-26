@@ -19,7 +19,6 @@ const AuthorForm = props => {
 
     const onSubmitHandler = (e) => {
         e.preventDefault();
-        console.log(name);
         props.callback(name, props.id);
     }
 

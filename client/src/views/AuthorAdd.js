@@ -13,13 +13,10 @@ const AuthorAdd = props => {
                 navigate("/authors/");
             }) 
             .catch(err => {
-                console.log( err.response.data.errors);
                 const errorResponse = err.response.data.errors;
                 const errorArr = [];
                 for (const key of Object.keys(errorResponse)) {
                     errorArr.push(errorResponse[key].message)
-                    console.log(errorResponse[key].message);
-                    console.log(errorArr);
                 }
                 setErrors(errorArr);
             });

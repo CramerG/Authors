@@ -26,7 +26,7 @@ module.exports.deleteAuthor = (req, res) => {
 }
 
 module.exports.updateAuthor = (req, res) => {
-    Author.findOneAndUpdate({_id: req.params.id}, req.body, {new: true})
+    Author.updateOne({_id: req.params.id}, req.body, {new: true, runValidators: true})
         .then(author => res.json(author))
-        .catch(err => res.json({message: "Error updating author: ", error: err}));
+        .catch(err => res.status(400).json(err));
 };
