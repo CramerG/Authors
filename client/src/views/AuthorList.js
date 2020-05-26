@@ -20,6 +20,10 @@ const AuthorList = props => {
             });
     }, [authors]);
 
+    const removeFromDOM = authorID => {
+        setAuthors(authors.filter(author => author._id != authorID));
+    };
+
     return(
         <div>
             <Link to="/authors/add">Add Author</Link>
@@ -38,7 +42,7 @@ const AuthorList = props => {
                                     <TableCell>{author.name}</TableCell>
                                     <TableCell>
                                         <EditButton authorId={author._id}/>
-                                        <DeleteButton/>
+                                        <DeleteButton id={author._id} callback={removeFromDOM}/>
                                         </TableCell>
                                 </TableRow>
                             );
